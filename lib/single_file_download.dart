@@ -1,4 +1,3 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,7 +34,9 @@ class SingleFileDownload extends StatelessWidget {
             leading: state.newFileLocation.isEmpty
                 ? const Icon(CupertinoIcons.cloud_download)
                 : const Icon(CupertinoIcons.cloud_download_fill),
-            title: Text("Downloaded: ${state.progress * 100} %"),
+            title: Text(
+              "Downloaded: ${(state.progress * 100).toStringAsFixed(2)} %",
+            ),
             subtitle: LinearProgressIndicator(
               value: state.progress,
               backgroundColor: Colors.grey,
